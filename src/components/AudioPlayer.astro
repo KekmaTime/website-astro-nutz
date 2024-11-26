@@ -1,0 +1,75 @@
+<div class="fixed top-20 left-4 z-40">
+    <button
+      id="audio-toggle"
+      class="group flex items-center justify-center size-10 rounded-full bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20 transition-colors duration-300 ease-in-out"
+      aria-label="Toggle music"
+    >
+      <svg 
+        id="audio-play"
+        xmlns="http://www.w3.org/2000/svg" 
+        viewBox="0 0 24 24"
+        class="size-5 stroke-2 fill-none stroke-current"
+      >
+        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+      </svg>
+      <svg 
+        id="audio-pause"
+        xmlns="http://www.w3.org/2000/svg" 
+        viewBox="0 0 24 24"
+        class="hidden size-5 stroke-2 fill-none stroke-current"
+      >
+        <rect x="6" y="4" width="4" height="16"></rect>
+        <rect x="14" y="4" width="4" height="16"></rect>
+      </svg>
+    </button>
+</div>
+
+<script>
+  let isPlaying = false;
+  let audioElement: HTMLAudioElement | null = null;
+
+  function createAudio() {
+    if (!audioElement) {
+      audioElement = new Audio("/music.mp3");
+      audioElement.loop = true;
+    }
+    return audioElement;
+  }
+
+  function initAudio() {
+    const audio = createAudio();
+    const toggleButton = document.getElementById("audio-toggle");
+    const playIcon = document.getElementById("audio-play");
+    const pauseIcon = document.getElementById("audio-pause");
+
+    // Restore previous state
+    if (isPlaying) {
+      playIcon?.classList.add("hidden");
+      pauseIcon?.classList.remove("hidden");
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+      }
+    }
+
+    toggleButton?.addEventListener("click", () => {
+      if (isPlaying) {
+        audio.pause();
+        playIcon?.classList.remove("hidden");
+        pauseIcon?.classList.add("hidden");
+      } else {
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            playIcon?.classList.add("hidden");
+            pauseIcon?.classList.remove("hidden");
+          }).catch(() => {});
+        }
+      }
+      isPlaying = !isPlaying;
+    });
+  }
+
+  // Initialize on first load
+  document.addEventListener("DOMContentLoaded", initAudio);
+</script>
