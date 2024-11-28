@@ -36,16 +36,26 @@
     return audioElement;
   }
 
+  function updatePlayerState(playing: boolean) {
+    const playIcon = document.getElementById("audio-play");
+    const pauseIcon = document.getElementById("audio-pause");
+    
+    if (playing) {
+      playIcon?.classList.add("hidden");
+      pauseIcon?.classList.remove("hidden");
+    } else {
+      playIcon?.classList.remove("hidden");
+      pauseIcon?.classList.add("hidden");
+    }
+  }
+
   function initAudio() {
     const audio = createAudio();
     const toggleButton = document.getElementById("audio-toggle");
-    const playIcon = document.getElementById("audio-play");
-    const pauseIcon = document.getElementById("audio-pause");
 
     // Restore previous state
+    updatePlayerState(isPlaying);
     if (isPlaying) {
-      playIcon?.classList.add("hidden");
-      pauseIcon?.classList.remove("hidden");
       const playPromise = audio.play();
       if (playPromise !== undefined) {
         playPromise.catch(() => {});
@@ -55,21 +65,25 @@
     toggleButton?.addEventListener("click", () => {
       if (isPlaying) {
         audio.pause();
-        playIcon?.classList.remove("hidden");
-        pauseIcon?.classList.add("hidden");
       } else {
         const playPromise = audio.play();
         if (playPromise !== undefined) {
           playPromise.then(() => {
-            playIcon?.classList.add("hidden");
-            pauseIcon?.classList.remove("hidden");
+            updatePlayerState(true);
           }).catch(() => {});
         }
       }
       isPlaying = !isPlaying;
+      updatePlayerState(isPlaying);
     });
   }
 
   // Initialize on first load
   document.addEventListener("DOMContentLoaded", initAudio);
+  
+  // Handle view transitions
+  document.addEventListener("astro:after-swap", () => {
+    updatePlayerState(isPlaying);
+    initAudio();
+  });
 </script>
