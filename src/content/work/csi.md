@@ -1,6 +1,7 @@
 ---
 company: "CSI SCT SB"
 role: "Technical Lead"
+location: "Trivandrum, India (On-site)"
 dateStart: "04/01/2024"
 dateEnd: "Current"
 ---

@@ -1,6 +1,7 @@
 ---
 company: "CASA"
 role: "Frontend Developer Intern"
+location: "Mumbai, Maharashtra (Remote)"
 dateStart: "09/01/2024"
 dateEnd: "Current"
 ---

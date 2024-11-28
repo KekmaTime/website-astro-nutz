@@ -1,6 +1,7 @@
 ---
 company: "Datacurve (YC W24)"
 role: "Algorithm Developer - Freelancing"
+location: "San Francisco, Bay Area (Remote)"
 dateStart: "07/01/2024"
 dateEnd: "Current"
 ---
