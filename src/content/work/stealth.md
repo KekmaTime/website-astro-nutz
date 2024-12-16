@@ -1,9 +1,9 @@
 ---
-company: "Stealth Startup"
+company: "FuzzyNodes"
 role: "Full Stack Developer Intern"
-location: "London, UK (Remote)"
+location: "Wales, Australia (Remote)"
 dateStart: "11/01/2024"
 dateEnd: "Current"
 ---
 
-Currently working as a full-stack developer for an early-stage startup, focusing on MVP development. Building responsive web applications using Next.js, TypeScript, and Tailwind CSS. Integrating third-party APIs and implementing serverless backend solutions with Supabase and Convex. Working in an agile environment to rapidly prototype and ship features.
+Contributing to frontend development using Next.js 14, React, and Tailwind CSS. Building reusable components and implementing responsive UI designs. Learning and working with modern backend technologies including Go and Rust under mentorship. Participating in code reviews and agile development processes while gaining hands-on experience with industry best practices.
