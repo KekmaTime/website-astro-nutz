@@ -28,6 +28,11 @@ const work = await Promise.all(
   })
 );
 
+const math = (await getCollection("math"))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, SITE.NUM_MATH_ON_HOMEPAGE);
+
 ---
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
