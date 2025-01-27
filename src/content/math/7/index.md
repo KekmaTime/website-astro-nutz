@@ -1,7 +1,7 @@
 ---
 title: "10,001st Prime"
 description: " What is the 10,001st prime number?"
-date: "2024-03-25"
+date: "2025-02-02"
 ---
 
 Problem Link: [10,001st Prime](https://projecteuler.net/problem=7)

@@ -1,7 +1,7 @@
 ---
 title: "Largest Product in a Series"
 description: "Find the greatest product of thirteen adjacent digits in a 1000-digit number"
-date: "2024-03-26"
+date: "2025-02-03"
 ---
 
 Problem Link: [Largest Product in a Series](https://projecteuler.net/problem=8)
